@@ -17,6 +17,15 @@
                 </div>
             </div>
             {{ $product->description }}
+
+            <form action="{{ route('line_item.create') }}" method="POST">
+                @csrf
+                <input type="hidden" name="id" value="{{ $product->id }}">
+                <div class="product__quantity">
+                    <input type="number" name="quantity" min="1" value="1" required>
+                </div>
+            </form>
         </div>
+        <a href="{{ route('product.index') }}">TOPに戻る</a>
     </div>
 @endsection
