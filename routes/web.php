@@ -22,4 +22,10 @@ Route::name('product.')
 Route::name('line_item.')
     ->group(function () {
         Route::post('/line_item/create', 'LineItemController@create')->name('create');
+        Route::post('/line_item/delete', 'LineItemController@delete')->name('delete');
+    });
+
+Route::name('cart.')
+    ->group(function () {
+        Route::get('/cart', 'CartController@index')->name('index');
     });
